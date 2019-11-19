@@ -1,6 +1,6 @@
 # Micro AWK
 
-AWK for people who don't have time to waste
+AWK for people who don't have time to waste.
 
 ## Introduction
 
