@@ -90,11 +90,11 @@ static int rule = 0;
 
 const char *const ruletab[] = {
 	"?",
-	"BEGIN",
+	"B",
 	"Rule",
-	"END",
-	"BEGINFILE",
-	"ENDFILE",
+	"E",
+	"BF",
+	"EF",
 };
 
 static bool in_print = false;	/* lexical scanning kludge for print */
@@ -1826,10 +1826,10 @@ tokcompare(const void *l, const void *r)
 #endif
 
 static const struct token tokentab[] = {
-{"BEGIN",	Op_rule,	 LEX_BEGIN,	0,		0,	0},
-{"BEGINFILE",	Op_rule,	 LEX_BEGINFILE,	GAWKX,		0,	0},
-{"END",		Op_rule,	 LEX_END,	0,		0,	0},
-{"ENDFILE",		Op_rule,	 LEX_ENDFILE,	GAWKX,		0,	0},
+{"B",	Op_rule,	 LEX_BEGIN,	0,		0,	0},
+{"BF",	Op_rule,	 LEX_BEGINFILE,	GAWKX,		0,	0},
+{"E",		Op_rule,	 LEX_END,	0,		0,	0},
+{"EF",		Op_rule,	 LEX_ENDFILE,	GAWKX,		0,	0},
 #ifdef ARRAYDEBUG
 {"adump",	Op_builtin,    LEX_BUILTIN,	GAWKX|A(1)|A(2),	do_adump,	0},
 #endif
@@ -1876,14 +1876,14 @@ static const struct token tokentab[] = {
 {"nextfile",	Op_K_nextfile, LEX_NEXTFILE,	0,		0,	0},
 {"or",		Op_builtin,    LEX_BUILTIN,	GAWKX,		do_or,	MPF(or)},
 {"patsplit",	Op_builtin,    LEX_BUILTIN,	GAWKX|A(2)|A(3)|A(4), do_patsplit,	0},
-{"print",	Op_K_print,	 LEX_PRINT,	0,		0,	0},
-{"printf",	Op_K_printf,	 LEX_PRINTF,	0,		0,	0},
+{"p",	Op_K_print,	 LEX_PRINT,	0,		0,	0},
+{"pf",	Op_K_printf,	 LEX_PRINTF,	0,		0,	0},
 {"rand",	Op_builtin,	 LEX_BUILTIN,	NOT_OLD|A(0),	do_rand,	MPF(rand)},
 {"return",	Op_K_return,	 LEX_RETURN,	NOT_OLD,	0,	0},
 {"rshift",	Op_builtin,    LEX_BUILTIN,	GAWKX|A(2),	do_rshift,	MPF(rhift)},
 {"sin",		Op_builtin,	 LEX_BUILTIN,	NOT_OLD|A(1),	do_sin,	MPF(sin)},
 {"split",	Op_builtin,	 LEX_BUILTIN,	A(2)|A(3)|A(4),	do_split,	0},
-{"sprintf",	Op_builtin,	 LEX_BUILTIN,	0,		do_sprintf,	0},
+{"spf",	Op_builtin,	 LEX_BUILTIN,	0,		do_sprintf,	0},
 {"sqrt",	Op_builtin,	 LEX_BUILTIN,	A(1),		do_sqrt,	MPF(sqrt)},
 {"srand",	Op_builtin,	 LEX_BUILTIN,	NOT_OLD|A(0)|A(1), do_srand,	MPF(srand)},
 #if defined(GAWKDEBUG) || defined(ARRAYDEBUG) /* || ... */
